@@ -1,0 +1,17 @@
+{
+  "name": "com.etliaojing.super-easy.files",
+  "displayName": "Super Easy File System",
+  "unity": "2022.3",
+  "version": "0.1.0",
+  "description": "A handy file system based on MessagePack",
+  "dependencies": {
+  },
+  "keywords": [
+    "File",
+    "System"
+  ],
+  "license": "MIT",
+  "category": "Scripting",
+  "samples": [
+  ]
+}
