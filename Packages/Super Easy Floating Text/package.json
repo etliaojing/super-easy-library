@@ -1,0 +1,17 @@
+{
+  "name": "com.etliaojing.super-easy.floating-text",
+  "displayName": "Super Easy Floating Text",
+  "unity": "2022.3",
+  "version": "0.1.0",
+  "description": "Super easy library for managing and displaying floating text effect",
+  "dependencies": {
+  },
+  "keywords": [
+    "Utility",
+    "System"
+  ],
+  "license": "MIT",
+  "category": "Scripting",
+  "samples": [
+  ]
+}

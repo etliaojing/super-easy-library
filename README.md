@@ -12,6 +12,20 @@ This package relies on MessagePack and has prerequisite for installation. Please
 - Open `Package Manager` window in Unity and select `Add Package from git URL...`
 - Enter the following path `https://github.com/etliaojing/super-easy-library.git?path=Packages/com.etliaojing.super-easy.files`
 
+## Super Easy Floating Text
+Floating text package that manages and summons floating text with zero effort
+
+### Dependencies
+This package has the following dependencies:
+- Unity.TextMeshPro
+- SuperEasy.Anima
+
+Please install those packages ahead of time.
+
+### How to Install
+- Open `Package Manager` window in Unity and select `Add Package from git URL...`
+- Enter the following path `https://github.com/etliaojing/super-easy-library.git?path=Packages/com.etliaojing.super-easy.floating-text`
+
 ## Super Easy Utilities
 Multiple useful tools and extensions:
 - A text mesh pro typewriter class that plays the typewriting effect with configurations

@@ -6,6 +6,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.etliaojing.super-easy.floating-text": {
+      "version": "file:Super Easy Floating Text",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.etliaojing.super-easy.utilities": {
       "version": "file:Super Easy Utilities",
       "depth": 0,
