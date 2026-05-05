@@ -1,0 +1,17 @@
+{
+  "name": "com.etliaojing.super-easy.anima",
+  "displayName": "Super Easy Anima",
+  "unity": "2022.3",
+  "version": "0.1.0",
+  "description": "Super easy animation library",
+  "dependencies": {
+  },
+  "keywords": [
+    "Animation",
+    "System"
+  ],
+  "license": "MIT",
+  "category": "Scripting",
+  "samples": [
+  ]
+}
