@@ -1,0 +1,17 @@
+{
+  "name": "com.etliaojing.super-easy.utilities",
+  "displayName": "Super Easy Utilities",
+  "unity": "2022.3",
+  "version": "0.1.0",
+  "description": "Super easy utility library",
+  "dependencies": {
+  },
+  "keywords": [
+    "Utility",
+    "System"
+  ],
+  "license": "MIT",
+  "category": "Scripting",
+  "samples": [
+  ]
+}

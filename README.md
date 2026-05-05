@@ -11,3 +11,11 @@ This package relies on MessagePack and has prerequisite for installation. Please
 - Read and complete the prerequisite for installation
 - Open `Package Manager` window in Unity and select `Add Package from git URL...`
 - Enter the following path `https://github.com/etliaojing/super-easy-library.git?path=Packages/com.etliaojing.super-easy.files`
+
+## Super Easy Utilities
+Multiple useful tools and extensions:
+- A text mesh pro typewriter class that plays the typewriting effect with configurations
+
+### How to Install
+- Open `Package Manager` window in Unity and select `Add Package from git URL...`
+- Enter the following path `https://github.com/etliaojing/super-easy-library.git?path=Packages/com.etliaojing.super-easy.utilities`
