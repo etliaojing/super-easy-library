@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace SuperEasy.Effect.Runtime.Scripts.Views
 {
-	public abstract class SuperEasyEffectEntityView<TEffectEvent> : MonoBehaviour where TEffectEvent : ISuperEasyEffectDisplayEvent
+	public abstract class SuperEasyEffectEntityView : MonoBehaviour
 	{
 		protected float CompleteDelay;
 		protected Action OnComplete;
 		
-		public virtual void SetUp(TEffectEvent e)
+		public virtual void SetUp(ISuperEasyEffectDisplayEvent e)
 		{
 			CompleteDelay = e.ReleaseDelay;
 			transform.position = e.TargetPoint;

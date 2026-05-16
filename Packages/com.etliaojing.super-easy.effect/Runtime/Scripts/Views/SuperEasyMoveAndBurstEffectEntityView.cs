@@ -5,18 +5,19 @@ using UnityEngine;
 
 namespace SuperEasy.Effect.Runtime.Scripts.Views
 {
-	public class SuperEasyMoveAndBurstEffectEntityView : SuperEasyEffectEntityView<SuperEasyMoveAndBurstEffectDisplayEvent>
+	public class SuperEasyMoveAndBurstEffectEntityView : SuperEasyEffectEntityView
 	{
 		[SerializeField] private ParticleSystem _burstBody;
 
 		private Vector3[] _path;
 		private float _moveDuration;
 
-		public override void SetUp(SuperEasyMoveAndBurstEffectDisplayEvent e)
+		public override void SetUp(ISuperEasyEffectDisplayEvent e)
 		{
 			base.SetUp(e);
-			_path = new[] { e.ControlPoint, e.EndPoint };
-			_moveDuration = e.MoveDuration;
+			var castE = e as SuperEasyMoveAndBurstEffectDisplayEvent;
+			_path = new[] { castE.ControlPoint, castE.EndPoint };
+			_moveDuration = castE.MoveDuration;
 			_burstBody.gameObject.SetActive(false);
 		}
 

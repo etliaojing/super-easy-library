@@ -6,22 +6,22 @@ using UnityEngine.Pool;
 
 namespace SuperEasy.Effect.Runtime.Scripts.Views
 {
-	public abstract class SuperEasyEffectAbstractPanel<TEffectEvent> : MonoBehaviour where TEffectEvent : ISuperEasyEffectDisplayEvent
+	public abstract class SuperEasyEffectAbstractPanel : MonoBehaviour
 	{
 		public int DefaultPoolSize = 5;
 		public int MaxPoolSize = 5;
-		
+
 		[SerializeField] protected RectTransform _vfxContainer;
-		[SerializeField] protected SuperEasyEffectEntityView<TEffectEvent> _template;
-		
-		protected IObjectPool<SuperEasyEffectEntityView<TEffectEvent>> EffectPool;
-		
-		public void Display(List<TEffectEvent> events, float interval = -1f)
+		[SerializeField] protected SuperEasyEffectEntityView _template;
+
+		protected IObjectPool<SuperEasyEffectEntityView> EffectPool;
+
+		public void Display(List<ISuperEasyEffectDisplayEvent> events, float interval = -1f)
 		{
 			StartCoroutine(CoDisplay(events, interval));
 		}
 
-		private IEnumerator CoDisplay(List<TEffectEvent> events, float interval)
+		private IEnumerator CoDisplay(List<ISuperEasyEffectDisplayEvent> events, float interval)
 		{
 			foreach (var e in events)
 			{
@@ -29,10 +29,10 @@ namespace SuperEasy.Effect.Runtime.Scripts.Views
 				{
 					yield return new WaitForSeconds(e.DisplayDelay);
 				}
-				
+
 				OnWillDisplayEffect(e);
 				DisplayEffect(e);
-				
+
 				if (interval > 0)
 				{
 					yield return new WaitForSeconds(interval);
@@ -40,7 +40,7 @@ namespace SuperEasy.Effect.Runtime.Scripts.Views
 			}
 		}
 
-		private IEnumerator CoReleaseEntity(SuperEasyEffectEntityView<TEffectEvent> entity, float delay)
+		private IEnumerator CoReleaseEntity(SuperEasyEffectEntityView entity, float delay)
 		{
 			yield return new WaitForSeconds(delay);
 			EffectPool.Release(entity);
@@ -51,17 +51,17 @@ namespace SuperEasy.Effect.Runtime.Scripts.Views
 		/// You can apply extra settings here
 		/// </summary>
 		/// <param name="e">The event</param>
-		protected virtual void OnWillDisplayEffect(TEffectEvent e)
+		protected virtual void OnWillDisplayEffect(ISuperEasyEffectDisplayEvent e)
 		{
 		}
 
-		protected virtual void DisplayEffect(TEffectEvent e)
+		protected virtual void DisplayEffect(ISuperEasyEffectDisplayEvent e)
 		{
 			var effect = EffectPool.Get();
 			effect.SetUp(e);
 			effect.Show(() => { EffectPool.Release(effect); });
 		}
-		
+
 		private void Awake()
 		{
 			Initialise();
@@ -69,7 +69,7 @@ namespace SuperEasy.Effect.Runtime.Scripts.Views
 
 		private void Initialise()
 		{
-			EffectPool = new ObjectPool<SuperEasyEffectEntityView<TEffectEvent>>(
+			EffectPool = new ObjectPool<SuperEasyEffectEntityView>(
 				OnCreateEffect,
 				OnTakeEffect,
 				OnReturnEffect,
@@ -77,23 +77,23 @@ namespace SuperEasy.Effect.Runtime.Scripts.Views
 				true, DefaultPoolSize, MaxPoolSize);
 		}
 
-		private void OnDestroyEffect(SuperEasyEffectEntityView<TEffectEvent> obj)
+		private void OnDestroyEffect(SuperEasyEffectEntityView obj)
 		{
 			Destroy(obj.gameObject);
 		}
 
-		protected virtual void OnReturnEffect(SuperEasyEffectEntityView<TEffectEvent> obj)
+		protected virtual void OnReturnEffect(SuperEasyEffectEntityView obj)
 		{
 			obj.gameObject.SetActive(false);
 		}
 
-		private void OnTakeEffect(SuperEasyEffectEntityView<TEffectEvent> obj)
+		private void OnTakeEffect(SuperEasyEffectEntityView obj)
 		{
 			obj.transform.SetAsLastSibling();
 			obj.gameObject.SetActive(true);
 		}
 
-		protected virtual SuperEasyEffectEntityView<TEffectEvent> OnCreateEffect()
+		protected virtual SuperEasyEffectEntityView OnCreateEffect()
 		{
 			var instance = Instantiate(_template, _vfxContainer);
 			return instance;

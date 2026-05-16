@@ -7,11 +7,10 @@ namespace SuperEasy.Effect.Runtime.Scripts
 {
 	public static class SuperEasyEffect
 	{
-		private static readonly Dictionary<object, SuperEasyEffectAbstractPanel<ISuperEasyEffectDisplayEvent>>
+		private static readonly Dictionary<object, SuperEasyEffectAbstractPanel>
 			PanelDictionary = new();
 
-		public static SuperEasyEffectAbstractPanel<ISuperEasyEffectDisplayEvent> RegisterEffectPanel(object key,
-			SuperEasyEffectAbstractPanel<ISuperEasyEffectDisplayEvent> panel)
+		public static SuperEasyEffectAbstractPanel RegisterEffectPanel(object key, SuperEasyEffectAbstractPanel panel)
 		{
 			if (PanelDictionary.TryGetValue(key, out var value))
 			{
