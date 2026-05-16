@@ -16,7 +16,7 @@ namespace SuperEasy.Effect.Runtime.Scripts.Views
 		{
 			base.SetUp(e);
 			var castE = e as SuperEasyMoveAndBurstEffectDisplayEvent;
-			_path = new[] { castE.ControlPoint, castE.EndPoint };
+			_path = castE.BezierPath;
 			_moveDuration = castE.MoveDuration;
 			_burstBody.gameObject.SetActive(false);
 		}

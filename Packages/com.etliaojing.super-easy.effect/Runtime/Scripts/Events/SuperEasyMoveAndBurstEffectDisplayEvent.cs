@@ -9,14 +9,10 @@ namespace SuperEasy.Effect.Runtime.Scripts.Events
 		public Vector3 TargetPoint { get; set; }
 		
 		/// <summary>
-		/// Control point position in world coordinate
+		/// The path waypoints in the format of [WP0,CP0,CP1,WP1,CP2,CP3,...]
+		/// It must be in multiple of threes
 		/// </summary>
-		public Vector3 ControlPoint { get; set; }
-		
-		/// <summary>
-		/// End point position in world coordinate
-		/// </summary>
-		public Vector3 EndPoint { get; set; }
+		public Vector3[] BezierPath { get; set; }
 		
 		/// <summary>
 		/// Move duration in seconds
