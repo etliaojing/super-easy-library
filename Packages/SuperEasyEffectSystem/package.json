@@ -1,0 +1,17 @@
+{
+  "name": "com.etliaojing.super-easy.effect",
+  "displayName": "Super Easy Effect",
+  "unity": "2022.3",
+  "version": "0.1.0",
+  "description": "Super easy effect system",
+  "dependencies": {
+  },
+  "keywords": [
+    "Effect",
+    "System"
+  ],
+  "license": "MIT",
+  "category": "Scripting",
+  "samples": [
+  ]
+}

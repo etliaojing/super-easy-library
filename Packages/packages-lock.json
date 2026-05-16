@@ -6,6 +6,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.etliaojing.super-easy.effect": {
+      "version": "file:SuperEasyEffectSystem",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.etliaojing.super-easy.files": {
       "version": "file:com.etliaojing.super-easy.files",
       "depth": 0,
