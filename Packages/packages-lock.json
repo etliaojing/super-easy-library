@@ -7,7 +7,7 @@
       "dependencies": {}
     },
     "com.etliaojing.super-easy.effect": {
-      "version": "file:SuperEasyEffectSystem",
+      "version": "file:com.etliaojing.super-easy.effect",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
